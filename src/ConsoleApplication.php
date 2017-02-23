@@ -3,6 +3,7 @@
 namespace Simplette\Console;
 
 use Symfony\Component\Console\Application;
+use Symfony\Component\Console\Input\InputOption;
 
 /**
  * Class ConsoleApplication
@@ -11,5 +12,16 @@ use Symfony\Component\Console\Application;
  */
 class ConsoleApplication extends Application
 {
+
+	/**
+	 * @inheritdoc
+	 */
+	protected function getDefaultInputDefinition()
+	{
+		$definition = parent::getDefaultInputDefinition();
+		$definition->addOption(new InputOption('--debug', NULL, InputOption::VALUE_NONE, 'Enable debug mode in console'));
+
+		return $definition;
+	}
 
 }
