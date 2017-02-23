@@ -1,0 +1,32 @@
+{
+	"name": "simplette/console",
+	"type": "library",
+	"description": "Simple bridge for Nette Framework and Symfony Console.",
+	"keywords": [
+		"nette",
+		"console"
+	],
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Lukas Povoda",
+			"email": "lupo112@gmail.com"
+		}
+	],
+	"require": {
+		"php": ">=5.6",
+		"symfony/console": "~2.8|~3.0",
+		"nette/bootstrap": "~2.4",
+		"nette/di": "~2.4"
+	},
+	"require-dev": {
+	},
+	"autoload": {
+		"psr-4": {
+			"Simplette\\Console\\": "src"
+		}
+	},
+	"bin": [
+		"bin/console"
+	]
+}
