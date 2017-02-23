@@ -33,8 +33,7 @@ class ConsoleExtension extends CompilerExtension
 		$builder = $this->getContainerBuilder();
 		$definition = $builder->addDefinition('console.application');
 		Compiler::loadDefinition($definition, $this->config['application']);
-		$definition->setAutowired(TRUE);
-		$definition->setInject(FALSE);
+		$definition->setAutowired(FALSE);
 
 		foreach ($builder->findByTag($this->config['tag']) as $name => $allowed) {
 			$definition->addSetup('add', ["@$name"]);
