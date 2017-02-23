@@ -27,8 +27,7 @@ class BootstrapHelper
 	 */
 	public static function setupMode(Configurator $configurator, callable $setupFunction = NULL)
 	{
-		$argvInput = new ArgvInput();
-		if (PHP_SAPI === 'cli' && $argvInput->hasParameterOption(self::$debugParam)) {
+		if (PHP_SAPI === 'cli' && (new ArgvInput())->hasParameterOption(self::$debugParam)) {
 			$configurator->setDebugMode(TRUE);
 		}
 		elseif ($setupFunction !== NULL) {
