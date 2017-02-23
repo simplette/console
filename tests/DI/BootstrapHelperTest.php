@@ -20,6 +20,14 @@ class BootstrapHelperTest extends TestCase
 	{
 		return [
 			[['console', '--debug'], TRUE],
+			[['console', '--debug-mode=yes'], TRUE],
+			[['console', '--debug-mode=on'], TRUE],
+			[['console', '--debug-mode=true'], TRUE],
+			[['console', '--debug-mode=1'], TRUE],
+			[['console', '--debug-mode=no'], FALSE],
+			[['console', '--debug-mode=off'], FALSE],
+			[['console', '--debug-mode=false'], FALSE],
+			[['console', '--debug-mode=0'], FALSE],
 			[['console'], FALSE],
 		];
 	}
