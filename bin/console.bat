@@ -6,15 +6,15 @@ rem   - if not found detect php, if found use it, otherwise err and terminate
 if "%OS%"=="Windows_NT" @setlocal
 
 rem %~dp0 is expanded pathname of the current script under NT
-set DEFAULT_CONSOLE_HOME=%~dp0..
+set DEFAULT_SIMPLETTE_CONSOLE_HOME=%~dp0..
 
 goto init
 goto cleanup
 
 :init
 
-if "%CONSOLE_HOME%" == "" set CONSOLE_HOME=%DEFAULT_CONSOLE_HOME%
-set DEFAULT_CONSOLE_HOME=
+if "%SIMPLETTE_CONSOLE_HOME%" == "" set SIMPLETTE_CONSOLE_HOME=%DEFAULT_SIMPLETTE_CONSOLE_HOME%
+set DEFAULT_SIMPLETTE_CONSOLE_HOME=
 
 if "%PHP_COMMAND%" == "" goto no_phpcommand
 
@@ -22,7 +22,7 @@ goto run
 goto cleanup
 
 :run
-"%PHP_COMMAND%" -d html_errors=off -qC "%CONSOLE_HOME%\bin\console" %*
+"%PHP_COMMAND%" -d html_errors=off -qC "%SIMPLETTE_CONSOLE_HOME%\bin\console" %*
 goto cleanup
 
 :no_phpcommand
@@ -31,8 +31,8 @@ set PHP_COMMAND=php.exe
 goto init
 
 :err_home
-echo ERROR: Environment var CONSOLE_HOME not set. Please point this
-echo variable to your local console installation!
+echo ERROR: Environment var SIMPLETTE_CONSOLE_HOME not set. Please point this
+echo variable to your local simplette_console installation!
 goto cleanup
 
 :cleanup
